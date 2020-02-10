@@ -20,11 +20,11 @@ These are not handled in this learning path and are assumed that you have knowle
 - JavaScript Basics
 - Backend language (Ruby)
 - MVC (Rails)
+- Database (SQL) and ActiveRecord
 - Object-Oriented Programming (Fundamentals and SOLID)
 - Debugging
-- App Development
 - Architecting Implementation
-- Database (SQL)
+- App Development
 - Problem Decomposition
 - Error Handling (JS and Ruby)
 - Data Structures
