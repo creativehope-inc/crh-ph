@@ -101,7 +101,8 @@ Boolean(1) // true
 
 ## Test Yourself
 
-- Create Each, Map, Reduce, Head, Compact
+- Create array manipulation library for Filter, Map, Reduce, Head, Compact, Join
+- Bob
 
 ## References
 
