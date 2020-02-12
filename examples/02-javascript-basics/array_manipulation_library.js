@@ -34,7 +34,7 @@ const $ = {
 
   // Mapping array
   console.log(
-    ($.map([5, 6, 7], function (num) { return num + 1 }) === [8, 9, 10])
+    ($.map([5, 6, 7], function (num) { return num + 3 }) === [8, 9, 10])
   );
 
   // Mapping empty array
