@@ -88,6 +88,7 @@ const $ = {
   );
 
   console.log('Running _.join...');
+
   // Joining array
   console.log(
     ($.join(['to','be', 1], '-') === 'to-be-1')

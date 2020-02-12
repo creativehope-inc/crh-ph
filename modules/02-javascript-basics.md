@@ -22,12 +22,15 @@ Variables is declared in 3 ways:
 - `var`
 
 **let**
+
 Allows variables to be defined and then overridden. Commonly used for any variable declaration.
 
 **const**
+
 Allows variables to be defined but not overridden. Commonly used for constants or runtime objects that won't change.
 
 **var**
+
 pre-ES6 variable declaration. It works the same way as `let`, which means we write constants in overridable variables - yowza!
 
 [Further Reading](https://javascript.info/variables)
@@ -85,7 +88,6 @@ Boolean(1) // true
 [Further Reading](https://javascript.info/type-conversions)
 
 ## Operators
-**TODO: Fill in later**
 
 [Further Reading](https://javascript.info/operators)
 
