@@ -1,4 +1,4 @@
-require('./helpers/array_equality.js')
+require('../helpers/array_equality.js')
 
 /*
 Let's create an array manipulation library called '_' where we implement functions such as:
@@ -11,17 +11,7 @@ Join - join the array elements into a string given a parameter
 */
 
 const $ = {
-	filter: function (arr, fx) {
-
-		res = []
-
-		 for (i = 0; i < arr.length; i++) {
-			 if (fx(arr[i]))
-				 res.push(arr[i])
-		 }
-
-		return res
-	},
+	filter: function (arr, fx) {},
 	map: function () {},
 	reduce: function () {},
 	head: function () {},
