@@ -8,7 +8,7 @@ Array.isEqual = function (array1, array2) {
     for (i = 0, l = array1.length; i < l; i++) {
 
         if (array1[i] instanceof Array && array2[i] instanceof Array) {
-            if (Helper.isEqual(array1[i], array2[i]))
+            if (Array.isEqual(array1[i], array2[i]))
                 return false  
         }           
         else if (array1[i] !== array2[i]) { 
