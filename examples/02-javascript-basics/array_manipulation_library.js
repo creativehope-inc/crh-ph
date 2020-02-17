@@ -1,3 +1,5 @@
+require('./helpers/array_equality.js')
+
 /*
 Let's create an array manipulation library called '_' where we implement functions such as:
 Each - iterate over an array and execute the function with the array as contents
@@ -9,93 +11,103 @@ Join - join the array elements into a string given a parameter
 */
 
 const $ = {
-  filter: function () {},
-  map: function () {},
-  reduce: function () {},
-  head: function () {},
-  tail: function () {},
-  join: function () {}
+	filter: function (arr, fx) {
+
+		res = []
+
+		 for (i = 0; i < arr.length; i++) {
+			 if (fx(arr[i]))
+				 res.push(arr[i])
+		 }
+
+		return res
+	},
+	map: function () {},
+	reduce: function () {},
+	head: function () {},
+	tail: function () {},
+	join: function () {}
 };
 
 (_ => {
-  console.log('Running _.filter...');
+	console.log('Running _.filter...');
 
-  // Filtering array
-  console.log(
-    ($.filter([1, 2, 3], function (num) { return num < 2 }) === [1])
-  );
+	// Filtering array
+	console.log(
+		Array.isEqual($.filter([1, 2, 3], function (num) { return num < 2 }),[1])
+	);
 
-  // Filtering empty array
-  console.log(
-    ($.filter([], function (num) { return num < 2 }) === [])
-  );
+	// Filtering empty array
+	console.log(
+		Array.isEqual($.filter([], function (num) { return num < 2 }),[])
+	);
 
-  console.log('Running _.map...');
+	console.log('Running _.map...');
 
-  // Mapping array
-  console.log(
-    ($.map([5, 6, 7], function (num) { return num + 3 }) === [8, 9, 10])
-  );
+	// Mapping array
+	console.log(
+		Array.isEqual($.map([5, 6, 7], function (num) { return num + 3 }),[8, 9, 10])
+	);
 
-  // Mapping empty array
-  console.log(
-    ($.map([], function (num) { return num < 2 }) === [])
-  );
+	// Mapping empty array
+	console.log(
+		Array.isEqual($.map([], function (num) { return num < 2 }),[])
+	);
 
-  console.log('Running _.reduce...');
+	console.log('Running _.reduce...');
 
-  // Adding numbers
-  console.log(
-    ($.reduce([1, 2, 3], function (acc, num) { return acc + num }) === 6)
-  );
+	// Adding numbers
+	console.log(
+		($.reduce([1, 2, 3], function (acc, num) { return acc + num }) === 6)
+	);
 
-  // Adding empty list
-  console.log(
-    ($.reduce([], function (acc, num) { return acc + num }) === [])
-  );
+	// Adding empty list
+	console.log(
+		Array.isEqual($.reduce([], function (acc, num) { return acc + num }),[])
+	);
 
-  // Adding with initial value
-  console.log(
-    ($.reduce([], function (acc, num) { return acc + num }, 0) === 0)
-  );
+	// Adding with initial value
+	console.log(
+		($.reduce([], function (acc, num) { return acc + num }, 0) === 0)
+	);
 
-  console.log(
-    ($.reduce([1, 2, 3], function (acc, num) { return acc + num }, 4) === 10)
-  );
+	console.log(
+		($.reduce([1, 2, 3], function (acc, num) { return acc + num }, 4) === 10)
+	);
 
-  console.log('Running _.head...');
+	console.log('Running _.head...');
 
-  // Getting top of array
-  console.log(
-    ($.head([1, 2, 3]) === 1)
-  );
+	// Getting top of array
+	console.log(
+		($.head([1, 2, 3]) === 1)
+	);
 
-  // Getting top of empty array
-  console.log(
-    ($.head([]) === undefined)
-  );
+	// Getting top of empty array
+	console.log(
+		($.head([]) === undefined)
+	);
 
-  console.log('Running _.tail...');
+	console.log('Running _.tail...');
 
-  // Getting tail of array
-  console.log(
-    ($.tail([1, 2, 3]) === 3)
-  );
+	// Getting tail of array
+	console.log(
+		($.tail([1, 2, 3]) === 3)
+	);
 
-  // Getting tail of empty array
-  console.log(
-    ($.tail([]) === undefined)
-  );
+	// Getting tail of empty array
+	console.log(
+		($.tail([]) === undefined)
+	);
 
-  console.log('Running _.join...');
+	console.log('Running _.join...');
 
-  // Joining array
-  console.log(
-    ($.join(['to','be', 1], '-') === 'to-be-1')
-  );
+	// Joining array
+	console.log(
+		($.join(['to','be', 1], '-') === 'to-be-1')
+	);
 
-  // Joining empty array
-  console.log(
-    ($.join([], '-') === '')
-  );
+	// Joining empty array
+	console.log(
+		($.join([], '-') === '')
+	);
 })();
