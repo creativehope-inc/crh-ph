@@ -11,7 +11,7 @@ Join - join the array elements into a string given a parameter
 */
 
 const $ = {
-	filter: function (arr, fx) {},
+	filter: function () {},
 	map: function () {},
 	reduce: function () {},
 	head: function () {},
