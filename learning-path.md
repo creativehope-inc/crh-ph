@@ -32,6 +32,7 @@ These are not handled in this learning path and are assumed that you have knowle
 By level 1, you should be able to write your own web app from scratch using common idioms and methods.
 
 ## Level 2
+- Advanced JS functions (closures, recursion, etc)
 - Version Control
 - Linux Basics
 - Systems Decomposition
