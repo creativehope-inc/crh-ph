@@ -66,7 +66,7 @@ that you need to iterate through.
 You can iterate across the object as well, although you cannot rely on the sequence of the keys.
 
 ```js
-for (key in object) {
+for (const key in object) {
 // for every key in object
 }
 ```

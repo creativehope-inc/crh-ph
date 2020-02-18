@@ -27,7 +27,6 @@ class MarsRover {
 
   console.log('Checking position...')
   repositionRovers()
-
   console.log(marsRover1.position().x === 0)
   console.log(marsRover1.position().y === 0)
   console.log(marsRover2.position().x === 10)
@@ -77,8 +76,8 @@ class MarsRover {
 
   console.log('Checking execute...')
   repositionRovers()
-  marsRover1.execute('MMLLMMRRMM')
-  marsRover2.execute('MMLLMMRRMM')
+  marsRover1.execute('MMLMMRMM')
+  marsRover2.execute('MMLMMRMM')
 
   console.log(marsRover1.position().x === -2)
   console.log(marsRover1.position().y === 4)
@@ -90,4 +89,7 @@ class MarsRover {
   repositionRovers()
   marsRover1.execute('MRMLMMMLLMMRMMLMMMMR')
   marsRover2.execute('RRMMMLLLMMMRMMMMMMLM')
-})
+
+  console.log(marsRover1.position())
+  console.log(marsRover2.position())
+})();
