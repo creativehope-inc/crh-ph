@@ -11,21 +11,28 @@ Join - join the array elements into a string given a parameter
 */
 
 const $ = {
-	filter: function (arr, fx) {
-		return arr.filter(number => number < 2)
+	filter: function (arr, b) {
+		return arr.filter(b)
 	},
-	map: function (arr) {
-		return arr.map(num => num + 3)
+	map: function (arr, b) {
+		return arr.map(b)
 	},
-	reduce: function (arr) {
+	reduce: function (arr, b, c) {
 		// const reducer = (acc, num) => acc + num;
   	// const reduced = numbers.reduce(reducer);
   	// return arr.reduce(reducer)
-  	const sum = arr.reduce(function(a,b){
-  		return a + b
-  	}, 0)
-
-  	return sum;
+  	// console.log(c);
+  	if (c==4){
+  		const sum = arr.reduce(b,c)
+  		return sum;
+  	}
+  	if(c===""){
+  		const sum = arr.reduce(b,0)
+  		return sum;
+  	} else {
+  		const sum = arr.reduce(b,0)
+  		return sum;
+  	} 	
 	},
 	head: function (arr) {
 		return arr[0]
@@ -33,8 +40,8 @@ const $ = {
 	tail: function (arr) {
 		return arr[arr.length-1]
 	},
-	join: function (arr) {
-		return arr.join('-');
+	join: function (arr, b) {
+		return arr.join(b)
 	}
 };
 
