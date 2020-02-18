@@ -18,9 +18,14 @@ const $ = {
 		return arr.map(num => num + 3)
 	},
 	reduce: function (arr) {
-		const reducer = (acc, num) => acc + num;
-  	// 	const reduced = numbers.reduce(reducer);
+		// const reducer = (acc, num) => acc + num;
+  	// const reduced = numbers.reduce(reducer);
   	// return arr.reduce(reducer)
+  	const sum = arr.reduce(function(a,b){
+  		return a + b
+  	}, 0)
+
+  	return sum;
 	},
 	head: function (arr) {
 		return arr[0]
