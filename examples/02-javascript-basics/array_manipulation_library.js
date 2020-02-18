@@ -11,12 +11,62 @@ Join - join the array elements into a string given a parameter
 */
 
 const $ = {
-	filter: function () {},
-	map: function () {},
-	reduce: function () {},
-	head: function () {},
-	tail: function () {},
-	join: function () {}
+	// Filter function
+	filter: function (values, test) {
+		var result = [];
+		for(var i = 0; i < values.length; i++) {
+			if(test(values[i])) {
+				result.push(values[i]);
+			}	
+		};
+
+		return result;
+	},
+	map: function (values, test) {
+		var result = [];
+		for(var i = 0; i < values.length; i++) {
+			result.push(test(values[i]));
+		}
+
+		return result;
+	},
+	reduce: function (values, test, initial_value) {
+		var result = [];
+		var total = 0;
+
+		for(var i = 0; i < values.length; i++) {
+			total = test(values[i], total);
+		}
+		
+		// Checks if there is initial value
+		if(initial_value || initial_value == 0) {
+			total = total + initial_value
+		} else {
+			if(values.length == 0) {
+				return result; // returns empty array if no init value and total
+			}
+		}
+
+		return total;
+	},
+	head: function (values) {
+		return values[0];
+	},
+	tail: function (values) {
+		return values[values.length - 1];
+	},
+	join: function (values, addon) {
+		var result = '';
+
+		for (var i = 0; i < values.length; i++) {
+			result += values[i];
+			if(i < values.length - 1) {
+				result += addon;
+			}
+		}
+		
+		return result;
+	}
 };
 
 (_ => {
