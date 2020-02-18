@@ -11,12 +11,50 @@ Join - join the array elements into a string given a parameter
 */
 
 const $ = {
-	filter: function () {},
-	map: function () {},
-	reduce: function () {},
-	head: function () {},
-	tail: function () {},
-	join: function () {}
+	filter: function (arr, fn) {
+    let newArr = [];
+    for (i = 0; i < arr.length; i++) {
+      if (fn(arr[i])) newArr.push(arr[i]);
+    }
+    return newArr;
+  },
+	map: function (arr, fn) {
+    let newArr2 = [];
+    for (i = 0; i < arr.length; i++) {
+      newArr2.push(fn(arr[i]));
+    }
+    return newArr2;
+  },
+	reduce: function (arr, fn, total) {    
+    if (total === undefined && arr.length === 0) {
+      return arr;
+    } else if (total === undefined && arr.length > 0) {
+      total = 0;
+      for (i = 0; i < arr.length; i++) {
+        total =+ fn(total, arr[i]); 
+      }      
+    } else {
+      for (i = 0; i < arr.length; i++) {
+        total =+ fn(total, arr[i]); 
+      } 
+    }
+    return total;
+  },
+	head: function (arr) {
+    return arr[0];
+  },
+	tail: function (arr) {
+    return arr[arr.length-1];
+  },
+	join: function (arr, fn) {
+    let str = '';
+    let j = arr.length;
+    for (i = 0; i < j; i++) {
+      // console.log("string "+arr[i].toString())
+      str += arr[i] + (i == (j-1) ? '' : fn);
+    }
+    return str;
+  }
 };
 
 (_ => {
