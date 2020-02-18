@@ -34,17 +34,17 @@ const $ = {
   	// const reduced = numbers.reduce(reducer);
   	// return arr.reduce(reducer)
   	// console.log(c);
-  	if (c==4){
-  		const sum = arr.reduce(b,c)
-  		return sum;
-  	}
-  	if(arr.length == 0){
-  		const sum = arr.reduce(b,0)
-  		return sum;
-  	} else {
-  		const sum = arr.reduce(b,0)
-  		return sum;
-  	} 	
+  	// if (c==4){
+  	// 	const sum = arr.reduce(b,c)
+  	// 	return sum;
+  	// }
+  	// if(arr.length == 0){
+  	// 	const sum = arr.reduce(b,0)
+  	// 	return sum;
+  	// } else {
+  	// 	const sum = arr.reduce(b,0)
+  	// 	return sum;
+  	// } 	
 	},
 	head: function (arr) {
 		return arr[0]
@@ -54,6 +54,18 @@ const $ = {
 	},
 	join: function (arr, b) {
 		// return arr.join(b)
+		// console.log(b)
+		res = ""
+		for (i = 0; i < arr.length; i++) {	
+		// res = i === 0 ? res + arr[i] : res + b + arr[i]	
+			if (i === 0){
+				res + arr[i]
+			}else{
+				res + b + arr[i]
+			}
+		}
+		console.log(res)
+		return res	
 	}
 };
 
