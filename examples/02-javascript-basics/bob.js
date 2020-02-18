@@ -7,8 +7,26 @@ He says 'Fine. Be that way!' if you address him without actually saying anything
 He answers 'Whatever.' to anything else.
 */
 
-function hey () {
-
+function hey (msg) {
+  let reply = '';
+  console.log(msg[msg.length-1])
+  //asking a question
+  if (msg[msg.length-1] === '?') {
+      reply = "Sure.";
+      console.log(reply)
+    // case :
+    //   reply = 'Whoa, chill out!';
+    //   break;
+    // case :
+    //   reply = 'Calm down, I know what I\'m doing!';
+    //   break;
+    // case :
+    //   reply = 'Fine. Be that way!';
+    //   break;
+    // case :
+    //   reply = 'Whatever.';
+  }
+  return reply;  
 }
 
 (_ => {
