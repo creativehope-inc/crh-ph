@@ -12,10 +12,22 @@ Join - join the array elements into a string given a parameter
 
 const $ = {
 	filter: function (arr, b) {
-		return arr.filter(b)
+		// console.log(b)
+		 res = []
+    for (i = 0; i < arr.length; i++) {
+      if (b(arr[i]))
+        res.push(arr[i])
+    }
+    return res
 	},
 	map: function (arr, b) {
-		return arr.map(b)
+		// console.log(b)
+		res = []
+		for (i = 0; i < arr.length; i++) {
+			res.push(b(arr[i]))
+		}
+		// console.log(res)
+		return res
 	},
 	reduce: function (arr, b, c) {
 		// const reducer = (acc, num) => acc + num;
@@ -26,7 +38,7 @@ const $ = {
   		const sum = arr.reduce(b,c)
   		return sum;
   	}
-  	if(c===""){
+  	if(arr.length == 0){
   		const sum = arr.reduce(b,0)
   		return sum;
   	} else {
@@ -41,7 +53,7 @@ const $ = {
 		return arr[arr.length-1]
 	},
 	join: function (arr, b) {
-		return arr.join(b)
+		// return arr.join(b)
 	}
 };
 
