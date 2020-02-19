@@ -46,7 +46,7 @@ to supply a generated key during compile time.
 
 Allows you to specify a field name in run time.
 
-``js
+```js
 let field = 'name'
 
 let person = {
