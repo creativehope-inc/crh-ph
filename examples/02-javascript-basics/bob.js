@@ -7,14 +7,58 @@ He says 'Fine. Be that way!' if you address him without actually saying anything
 He answers 'Whatever.' to anything else.
 */
 
-function hey () {
+function hey (convo) {
+  var questioned_at = 'Sure.';
+  var yelled_at = 'Whoa, chill out!';
+  var yelled_question_at = 'Calm down, I know what I\'m doing!';
+  var not_say_any = 'Fine';
+  var whatever = 'Whatever.';
 
+  var letter_case = isUpperCase(convo); //if true = uppercase, otherwise false
+  var has_characters = hasCharacters(convo); //if false = there is no alpha characters
+
+
+  if(has_characters) { // checks if the string has alphabets
+    if(letter_case) {
+      if(convo.indexOf('!') > -1) { //if true, you are yelling at them, possible combination of ! and ?
+        return yelled_at;
+      } else if(convo.indexOf('?') > -1) { // if true, you yelled a question
+        return yelled_question_at;
+      } else {
+        return yelled_at;
+      }
+    } else if(convo.indexOf('?') > -1) {
+      return questioned(); // if only asks question
+    } else {
+      return nothing_at_all();
+    }
+  } else if(convo.indexOf('?') > -1) {
+      return questioned(); // if only asks question about numbers and symbols
+  } else {
+    return nothing_at_all();
+  }
+
+  function isUpperCase(str) {
+    return str === str.toUpperCase();
+  }
+
+  function hasCharacters(str) {
+    return str.toLowerCase() !== str.toUpperCase();
+  }
+
+  function questioned() {
+    return questioned_at;
+  }
+
+  function nothing_at_all() {
+    return whatever;
+  }
 }
 
 (_ => {
   console.log('Running hey...');
   // Stating Something
-  console.log(hey('Tom-ay-to, tom-aaaah-to.') === 'Whatever');
+  console.log(hey('Tom-ay-to, tom-aaaah-to.') === 'Whatever.'); // Edited to match 'Whatever.'
 
   // Shouting
   console.log(hey('WATCH OUT!') === 'Whoa, chill out!');
@@ -44,7 +88,7 @@ function hey () {
   console.log(hey('1, 2, 3 GO!') === 'Whoa, chill out!');
 
   // Only numbers
-  console.log(hey('4?') === 'Sure.');
+  console.log(hey('4.?') === 'Sure.');
 
   // Shouting with special characters
   console.log(hey('ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!') === 'Whoa, chill out!');
