@@ -243,7 +243,7 @@ user.sayHi();
 
 **Getters and Setters**
 
-```
+```js
 class User {
 
   constructor(name) {
