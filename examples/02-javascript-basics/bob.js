@@ -6,25 +6,27 @@ He retorts 'Calm down, I know what I'm doing!' if you yell a question at him.
 He says 'Fine. Be that way!' if you address him without actually saying anything.
 He answers 'Whatever.' to anything else.
 */
+function isUpperCase(x) {
+  if (x === x.toUpperCase()) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 function hey (msg) {
   let reply = '';
-  console.log(msg[msg.length-1])
-  //asking a question
-  if (msg[msg.length-1] === '?') {
-      reply = "Sure.";
-      console.log(reply)
-    // case :
-    //   reply = 'Whoa, chill out!';
-    //   break;
-    // case :
-    //   reply = 'Calm down, I know what I\'m doing!';
-    //   break;
-    // case :
-    //   reply = 'Fine. Be that way!';
-    //   break;
-    // case :
-    //   reply = 'Whatever.';
+
+  if (isUpperCase(msg) === true && msg[msg.length - 1] === '?') {
+    reply = 'Calm down, I know what I\'m doing!';
+  } else if (isUpperCase(msg) === true) {
+    reply = 'Whoa, chill out!';
+  } else if (msg[msg.length - 1] === '?') {
+    reply = "Sure.";
+  } else if (msg === 'Bob') {
+    reply = 'Fine. Be that way!';
+  } else {
+    reply = "Whatever.";
   }
   return reply;  
 }
@@ -32,7 +34,7 @@ function hey (msg) {
 (_ => {
   console.log('Running hey...');
   // Stating Something
-  console.log(hey('Tom-ay-to, tom-aaaah-to.') === 'Whatever');
+  console.log(hey('Tom-ay-to, tom-aaaah-to.') === 'Whatever.');
 
   // Shouting
   console.log(hey('WATCH OUT!') === 'Whoa, chill out!');
