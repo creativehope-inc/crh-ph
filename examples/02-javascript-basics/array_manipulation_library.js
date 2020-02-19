@@ -39,12 +39,10 @@ const $ = {
 		}
 		
 		// Checks if there is initial value
-		if(initial_value || initial_value == 0) {
+		if(initial_value || initial_value === 0) {
 			total = total + initial_value
-		} else {
-			if(values.length == 0) {
-				return result; // returns empty array if no init value and total
-			}
+		} else if(values.length == 0) {
+			return result; // returns empty array if no init value and total
 		}
 
 		return total;
