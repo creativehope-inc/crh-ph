@@ -79,8 +79,8 @@ Objects are copied by reference. Hence any comparison (`==` or `===`) would resu
 let a = {};
 let b = a; // copy the reference
 
-alert( a == b ); // true, both variables reference the same object
-alert( a === b ); // true
+a == b // true, both variables reference the same object
+a === b // true
 ```
 
 [Further Reading](https://javascript.info/object)
@@ -256,7 +256,6 @@ class User {
   }
 
   set name(value) {
-    console.log('setter')
     if (value.length < 4) {
       console.log("Name is too short.");
       return;
