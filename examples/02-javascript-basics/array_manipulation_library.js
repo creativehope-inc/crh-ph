@@ -12,13 +12,13 @@ Join - join the array elements into a string given a parameter
 
 const $ = {
 	filter: function (arr, b) {
-		// console.log(b)
-		 res = []
-    for (i = 0; i < arr.length; i++) {
-      if (b(arr[i]))
-        res.push(arr[i])
-    }
-    return res
+		res = []
+		for (i = 0; i < arr.length; i++) {
+			if (b(arr[i])) {
+				res.push(arr[i])
+			}
+		}
+		return res
 	},
 	map: function (arr, b) {
 		// console.log(b)
@@ -26,25 +26,26 @@ const $ = {
 		for (i = 0; i < arr.length; i++) {
 			res.push(b(arr[i]))
 		}
-		// console.log(res)
 		return res
 	},
 	reduce: function (arr, b, c) {
-		// const reducer = (acc, num) => acc + num;
-  	// const reduced = numbers.reduce(reducer);
-  	// return arr.reduce(reducer)
-  	// console.log(c);
-  	// if (c==4){
-  	// 	const sum = arr.reduce(b,c)
-  	// 	return sum;
-  	// }
-  	// if(arr.length == 0){
-  	// 	const sum = arr.reduce(b,0)
-  	// 	return sum;
-  	// } else {
-  	// 	const sum = arr.reduce(b,0)
-  	// 	return sum;
-  	// } 	
+		// console.log(c)
+		res = []
+		sum = 0
+
+		for (i = 0; i < arr.length; i++) {
+			sum = b(arr[i], sum)
+		}
+
+		if(c || c === 0){
+			sum = sum + c
+		}else if(arr.length === 0){
+			return res
+			console.log("blank", res)
+		}
+
+		// console.log(sum)
+		return sum
 	},
 	head: function (arr) {
 		return arr[0]
@@ -54,17 +55,15 @@ const $ = {
 	},
 	join: function (arr, b) {
 		// return arr.join(b)
-		// console.log(b)
+		// console.log(arr.length-1)
 		res = ""
 		for (i = 0; i < arr.length; i++) {	
-		// res = i === 0 ? res + arr[i] : res + b + arr[i]	
-			if (i === 0){
-				res + arr[i]
-			}else{
-				res + b + arr[i]
+			res += arr[i]
+			if(i < arr.length -1 ) {
+				res +=  b
 			}
 		}
-		console.log(res)
+		// console.log(res)
 		return res	
 	}
 };
