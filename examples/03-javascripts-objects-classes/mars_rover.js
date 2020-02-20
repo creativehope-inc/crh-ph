@@ -27,7 +27,7 @@ class MarsRover {
     }
   }
 
-  //get the direction
+  //gets the direction
   get_direction() {
     return this.direction;
   }
@@ -90,19 +90,22 @@ class MarsRover {
   }
 
   execute(commands) {
+    let invalid_command = false;
+
     for(let i = 0; i < commands.length; i++) {
       if(commands[i] === 'M') {
         this.move()
       } else if(commands[i] === 'L') {
         this.turnLeft()
       } else if(commands[i] === 'R') {
-        this.turnRight();
+        this.turnRight()
       } else {
-        return 'INVALID COMMAND';
+        invalid_command = true;
       }
     }
 
-    return this.position();
+    // notifies human if there is an invalid command.
+    return invalid_command ? console.log('THERE IS AN INVALID COMMAND') : this.position();
   }
     
 }
