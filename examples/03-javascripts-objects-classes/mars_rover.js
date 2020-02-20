@@ -13,7 +13,98 @@
 //
 
 class MarsRover {
+  constructor(posX, posY) {
+    this.x = posX;
+    this.y = posY;
+    this.direction = 'north';
+  }
 
+  // gets and sets the position
+  position() {
+    return {
+      x: this.x,
+      y: this.y
+    }
+  }
+
+  //get the direction
+  get_direction() {
+    return this.direction;
+  }
+
+  move() {
+    switch(this.get_direction()) {
+      case 'north':
+        ++this.y
+        break
+      case 'west':
+        --this.x
+        break
+      case 'south':
+        --this.y
+        break
+      case 'east':
+        ++this.x
+        break
+    }
+
+    return this.position();
+  }
+
+  turnLeft() {
+    switch(this.get_direction()) {
+      case 'north':
+        this.direction = 'west'
+        break
+      case 'west':
+        this.direction = 'south'
+        break
+      case 'south':
+        this.direction = 'east'
+        break
+      case 'east':
+        this.direction = 'north'
+        break
+    }
+
+    return this.direction;
+  }
+
+  turnRight() {
+    switch(this.get_direction()) {
+      case 'north':
+        this.direction = 'east'
+        break
+      case 'east':
+        this.direction = 'south'
+        break
+      case 'south':
+        this.direction = 'west'
+        break
+      case 'west':
+        this.direction = 'north'
+        break
+    }
+
+    return this.direction;
+  }
+
+  execute(commands) {
+    for(let i = 0; i < commands.length; i++) {
+      if(commands[i] === 'M') {
+        this.move()
+      } else if(commands[i] === 'L') {
+        this.turnLeft()
+      } else if(commands[i] === 'R') {
+        this.turnRight();
+      } else {
+        return 'INVALID COMMAND';
+      }
+    }
+
+    return this.position();
+  }
+    
 }
 
 (_ => {
