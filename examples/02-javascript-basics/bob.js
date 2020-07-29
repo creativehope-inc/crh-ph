@@ -6,15 +6,38 @@ He retorts 'Calm down, I know what I'm doing!' if you yell a question at him.
 He says 'Fine. Be that way!' if you address him without actually saying anything.
 He answers 'Whatever.' to anything else.
 */
+function isUpperCaseOrNumeric(x) {
+  let substr = x.substr(1, x.length-2);
+  if (!isNaN(substr * 1)) {
+    return 1;
+  } else if (x === x.toUpperCase()) {
+    return 2;
+  } else {
+    return false;
+  }
+}
 
-function hey () {
-
+function hey (msg) {
+  let reply = '';
+  
+  if (isUpperCaseOrNumeric(msg) === 2 && msg[msg.length - 1] === '?') { // if you yell a question at him
+    reply = 'Calm down, I know what I\'m doing!';
+  } else if (isUpperCaseOrNumeric(msg) === 2) { // if you yell at him.
+    reply = 'Whoa, chill out!';
+  } else if (msg[msg.length - 1] === '?' || isUpperCaseOrNumeric(msg) === 1) { // if you ask him a question
+    reply = "Sure.";
+  } else if (msg === 'Bob') { //if you address him without actually saying anything
+    reply = 'Fine. Be that way!';
+  } else { // to anything else
+    reply = "Whatever.";
+  }
+  return reply;  
 }
 
 (_ => {
   console.log('Running hey...');
   // Stating Something
-  console.log(hey('Tom-ay-to, tom-aaaah-to.') === 'Whatever');
+  console.log(hey('Tom-ay-to, tom-aaaah-to.') === 'Whatever.');
 
   // Shouting
   console.log(hey('WATCH OUT!') === 'Whoa, chill out!');
