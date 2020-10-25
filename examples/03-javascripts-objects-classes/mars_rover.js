@@ -14,6 +14,81 @@
 
 class MarsRover {
 
+  constructor(x, y) {
+    this.positionX = x;
+    this.positionY = y;
+    this.direction = 'North';
+  }
+
+  position() {
+    return (
+      {
+        x: this.positionX,
+        y: this.positionY,
+        direction: this.direction
+      }
+    )
+  }
+
+  move() {
+    if (this.direction == 'North') {
+      this.positionX = this.position().x;
+      this.positionY = this.position().y +  1;
+    } else if (this.direction == 'Left') {
+      this.positionX = this.position().x -  1;
+      this.positionY = this.position().y;
+    } else if (this.direction == 'Right') {
+      this.positionX = this.position().x +  1;
+      this.positionY = this.position().y;
+    } 
+    return (
+      {
+        positionX: this.positionX, 
+        positionY: this.positionY,
+        direction: this.direction
+      }
+    );
+  }
+
+  turnLeft() {
+    this.positionX = this.position().x;
+    this.positionY = this.position().y;
+    this.direction = 'Left';
+    return (
+      {
+        positionX: this.positionX, 
+        positionY: this.positionY,
+        direction: this.direction
+      }
+    );
+  }
+
+  turnRight() {
+    this.positionX = this.position().x;
+    this.positionY = this.position().y;
+    this.direction = 'Right';
+    return (
+      {
+        positionX: this.positionX, 
+        positionY: this.positionY,
+        direction: this.direction
+      }
+    );
+  }
+
+  execute(commands) {
+    for (let i = 0; i < commands.length; i++) {
+      if (commands[i] === 'M') {
+        this.move();
+      } else if (commands[i] === 'L') {
+        this.turnLeft();
+      } else if (commands[i] === 'R') {
+        this.turnRight();
+      }
+      console.log(this.position()) //MRMLMMMLLMMRMMLMMMMR
+    }
+    return this.position();
+  }
 }
 
 (_ => {
@@ -76,8 +151,8 @@ class MarsRover {
 
   console.log('Checking execute...')
   repositionRovers()
-  marsRover1.execute('MMLMMRMM')
-  marsRover2.execute('MMLMMRMM')
+  // marsRover1.execute('MMLMMRMM')
+  // marsRover2.execute('MMLMMRMM')
 
   console.log(marsRover1.position().x === -2)
   console.log(marsRover1.position().y === 4)
@@ -88,7 +163,7 @@ class MarsRover {
   console.log("What are the rovers now")
   repositionRovers()
   marsRover1.execute('MRMLMMMLLMMRMMLMMMMR')
-  marsRover2.execute('RRMMMLLLMMMRMMMMMMLM')
+  // marsRover2.execute('RRMMMLLLMMMRMMMMMMLM')
 
   console.log(marsRover1.position())
   console.log(marsRover2.position())
